@@ -1,22 +1,23 @@
-This release focused on performance optimizations and mobile compatibility fixes. Key improvements included refactoring the critical loading path and product card links behavior, fixing iOS-specific image distortion and Safari scrolling issues, and resolving various UI alignment problems. Additionally, a new toggle was added for the "Powered by Shopify" footer option.
+This release introduces some performance improvements, browser compatibility bug fixes, as well as general UI improvements.
 
 ## What's Changed
 
-### Changed
-
-- Added toggle for "Show 'Powered by Shopify'" to Copyrights footer block
-
 ### Fixes and improvements
 
-- Fixed swatch block alignment setting
-- [Performance] Refactored the critical loading path
-- [Performance] Refactored product card links behaviour
-- [Performance] Improved image loading for mega menu and drawer
-- Fixed hide logo on home page
-- Fixed page scrolling behind drawers in Safari
-- Fixed Add to Cart Button cutoff on mobile
-- Fixed product images appearing distorted on iOS devices
-- Fixed Minimum height being too small in search bar
-- Ensured password footer does not overlap other content
-- Connected featured image to main blog post dynamically
-- Fixed several issues with "auto" aspect ratio in product media
+- [Performance] Updated our widths to use similar sizing everywhere
+- [Performance] Adjusted slideshow loading strategy
+- [Performance] Prevented expensive hover styles when tapping on mobile
+- [Performance] Adjusted block settings reference for performance optimization
+- [Performance] Adjusted focus trapping
+- [Performance] Reduced duplication of font face declarations
+- [Browser support] Fixed menu layout on iOS 16
+- [Browser support] Fixed filter pill not showing on iOS
+- [Browser support] Fixed cart drawer close button shape and focus outline visibility
+- [Browser support] Fixed closing functionality of the header menus on mobile iOS
+- [Browser support] Fixed slanted font in Safari
+- Fixed swatch selection when opening quick add
+- Fixed stretched logo on gift card page
+- Fixed aspect ratio for the product media gallery
+- Fixed "Hide unselected variant media" setting not applying
+- Fixed combined listings dropdown to update URL properly
+- [Editor] Updated state management to not keep modals open upon theme navigation

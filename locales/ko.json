@@ -213,7 +213,16 @@
     "inventory_low_stock_show_count": {
       "one": "{{ count }}개 남음",
       "other": "{{ count }}개 남음"
-    }
+    },
+    "recipient_form_send_to": "전송 대상:",
+    "recipient_form_email_label": "수신자 이메일",
+    "recipient_form_email_label_my_email": "내 이메일",
+    "recipient_form_email_address": "수신자 이메일 주소",
+    "recipient_form_name_label": "수신자 이름(선택 사항)",
+    "recipient_form_characters_used": "{{ used_chars }}/{{ max_chars }}자 입력함",
+    "recipient_form_send_on": "YYYY-MM-DD",
+    "recipient_form_send_on_label": "전송 날짜(선택 사항)",
+    "recipient_form_message": "메시지(선택 사항)"
   },
   "gift_cards": {
     "issued": {

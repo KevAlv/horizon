@@ -4,8 +4,6 @@
 [Staying up to date with Horizon changes](#staying-up-to-date-with-horizon-changes) |
 [Developer tools](#developer-tools) |
 [Contributing](#contributing) |
-[Code of conduct](#code-of-conduct) |
-[Theme Store submission](#theme-store-submission) |
 [License](#license)
 
 Horizon is the flagship of a new generation of first party Shopify themes. It incorporates the latest Liquid Storefronts features, including [theme blocks](https://shopify.dev/docs/storefronts/themes/architecture/blocks/theme-blocks/quick-start?framework=liquid).
@@ -19,7 +17,7 @@ Horizon is the flagship of a new generation of first party Shopify themes. It in
 
 We recommend using the Skeleton Theme as a starting point for theme development. [Learn more on Shopify.dev](https://shopify.dev/themes/getting-started/create).
 
-> If you're building a theme for the Shopify Theme Store, then you can use Horizon as a starting point. However, the theme that you submit needs to be [substantively different from Horizon](https://shopify.dev/themes/store/requirements#uniqueness) so that it provides added value for merchants. Learn about the [theme developer tools](https://shopify.dev/docs/storefronts/themes/tools).
+> If you're building a theme for the Shopify Theme Store, then do not use Horizon as a starting point. Themes based on, derived from, or incorporating Horizon are not eligible for submission to to the Shopify Theme Store. Use the [Skeleton Theme](https://github.com/Shopify/skeleton-theme) instead. Learn about the [theme developer tools](https://shopify.dev/docs/storefronts/themes/tools).
 
 Please note that the main branch may include code for features not yet released. The "stable" version of Horizon is available in the theme store.
 
@@ -73,7 +71,7 @@ You can follow the [theme check documentation](https://shopify.dev/docs/storefro
 
 ### Continuous Integration
 
-Horizon uses [GitHub Actions](https://github.com/features/actions) to maintain the quality of the theme. [This is a starting point](https://github.com/Shopify/horizon/blob/main/.github/workflows/ci.yml) and what we suggest to use in order to ensure you're building better themes. Feel free to build off of it!
+Horizon uses [GitHub Actions](https://github.com/features/actions) to maintain the quality of the theme. [This is a starting point](https://github.com/Shopify/horizon-private/blob/main/.github/workflows/ci.yml) and what we suggest to use in order to ensure you're building better themes. Feel free to build off of it!
 
 #### Shopify/theme-check-action
 
@@ -82,12 +80,6 @@ Horizon runs [Theme Check](#Theme-Check) on every commit via [Shopify/theme-chec
 ## Contributing
 
 We are not accepting contributions to Horizon at this time.
-
-## Theme Store submission
-
-The [Shopify Theme Store](https://themes.shopify.com/) is the place where Shopify merchants find the themes that they'll use to showcase and support their business. As a theme partner, you can create themes for the Shopify Theme Store and reach an international audience of an ever-growing number of entrepreneurs.
-
-Ensure that you follow the list of [theme store requirements](https://shopify.dev/themes/store/requirements) if you're interested in becoming a [Shopify Theme Partner](https://themes.shopify.com/services/themes/guidelines) and building themes for the Shopify platform.
 
 ## License
 

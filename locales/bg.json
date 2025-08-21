@@ -217,14 +217,15 @@
     "recipient_form_send_to": "Изпращане до",
     "recipient_form_email_label": "Имейл на получателя",
     "recipient_form_email_label_my_email": "Моят имейл",
-    "recipient_form_email_label_optional_for_no_js_behavior": "Имейл на получателя (незадължително)",
     "recipient_form_email_address": "Имейл адрес на получателя",
     "recipient_form_name_label": "Име на получателя (незадължително)",
-    "recipient_form_message_label": "Съобщение (незадължително)",
     "recipient_form_message": "Съобщение (незадължително)",
     "recipient_form_characters_used": "{{ used_chars }}/{{ max_chars }} използвани знака",
     "recipient_form_send_on": "ГГГГ-ММ-ДД",
-    "recipient_form_send_on_label": "Дата на изпращане (незадължително)"
+    "recipient_form_send_on_label": "Дата на изпращане (незадължително)",
+    "recipient_form_fields_visible": "Полетата във формуляра за получателя вече са видими",
+    "recipient_form_fields_hidden": "Полетата във формуляра за получателя вече са скрити",
+    "recipient_form_error": "Възникна грешка при подаването на формуляра"
   },
   "gift_cards": {
     "issued": {

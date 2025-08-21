@@ -232,7 +232,10 @@
     "recipient_form_message": "Žinutė (pasirinktinai)",
     "recipient_form_characters_used": "Panaudota {{ used_chars }}/{{ max_chars }} simbolių",
     "recipient_form_send_on": "MMMM-MM-DD",
-    "recipient_form_send_on_label": "Išsiuntimo data (pasirinktinai)"
+    "recipient_form_send_on_label": "Išsiuntimo data (pasirinktinai)",
+    "recipient_form_fields_visible": "Dabar gavėjo formos laukai yra matomi",
+    "recipient_form_fields_hidden": "Dabar gavėjo formos laukai yra paslėpti",
+    "recipient_form_error": "Įvyko su formos pateikimu susijusi klaida"
   },
   "gift_cards": {
     "issued": {

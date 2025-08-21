@@ -217,14 +217,15 @@
     "recipient_form_send_to": "送信先",
     "recipient_form_email_label": "受信者のメール",
     "recipient_form_email_label_my_email": "私のメール",
-    "recipient_form_email_label_optional_for_no_js_behavior": "受信者のメール (任意）",
     "recipient_form_email_address": "受信者のメールアドレス",
     "recipient_form_name_label": "受信者の名前 (任意）",
-    "recipient_form_message_label": "メッセージ (任意)",
     "recipient_form_message": "メッセージ (任意)",
     "recipient_form_characters_used": "{{ used_chars }}/{{ max_chars }}文字使用",
     "recipient_form_send_on": "年/月/日",
-    "recipient_form_send_on_label": "送信日 (任意)"
+    "recipient_form_send_on_label": "送信日 (任意)",
+    "recipient_form_fields_visible": "受信者フォームフィールドが表示されました",
+    "recipient_form_fields_hidden": "受信者フォームフィールドが非表示になりました",
+    "recipient_form_error": "フォームの送信の際にエラーが発生しました"
   },
   "gift_cards": {
     "issued": {

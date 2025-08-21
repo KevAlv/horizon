@@ -222,14 +222,15 @@
     "recipient_form_send_to": "Enviar para",
     "recipient_form_email_label": "E-mail do destinatário",
     "recipient_form_email_label_my_email": "Meu e-mail",
-    "recipient_form_email_label_optional_for_no_js_behavior": "E-mail do destinatário (opcional)",
     "recipient_form_email_address": "Endereço de e-mail do destinatário",
     "recipient_form_name_label": "Nome do destinatário (opcional)",
-    "recipient_form_message_label": "Mensagem (opcional)",
     "recipient_form_message": "Mensagem (opcional)",
     "recipient_form_characters_used": "{{ used_chars }}/{{ max_chars }} caracteres usados",
     "recipient_form_send_on": "DD/MM/AAAA",
-    "recipient_form_send_on_label": "Enviar em (opcional)"
+    "recipient_form_send_on_label": "Enviar em (opcional)",
+    "recipient_form_fields_visible": "Os campos do formulário do destinatário agora estão visíveis",
+    "recipient_form_fields_hidden": "Os campos do formulário do destinatário agora estão ocultos",
+    "recipient_form_error": "Houve um erro com o envio do formulário"
   },
   "gift_cards": {
     "issued": {

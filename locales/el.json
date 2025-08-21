@@ -217,14 +217,15 @@
     "recipient_form_send_to": "Αποστολή σε",
     "recipient_form_email_label": "Email παραλήπτη",
     "recipient_form_email_label_my_email": "Το email μου",
-    "recipient_form_email_label_optional_for_no_js_behavior": "Email παραλήπτη (προαιρετικά)",
     "recipient_form_email_address": "Διεύθυνση email παραλήπτη",
     "recipient_form_name_label": "Όνομα παραλήπτη (προαιρετικά)",
-    "recipient_form_message_label": "Μήνυμα (προαιρετικά)",
     "recipient_form_message": "Μήνυμα (προαιρετικά)",
     "recipient_form_characters_used": "Χρησιμοποιήθηκαν {{ used_chars }}/{{ max_chars }} χαρακτήρες",
     "recipient_form_send_on": "ΕΕΕΕ-ΜΜ-ΗΗ",
-    "recipient_form_send_on_label": "Ημερομηνία αποστολής (προαιρετικά)"
+    "recipient_form_send_on_label": "Ημερομηνία αποστολής (προαιρετικά)",
+    "recipient_form_fields_visible": "Τα πεδία της φόρμας παραλήπτη είναι πλέον ορατά",
+    "recipient_form_fields_hidden": "Τα πεδία της φόρμας παραλήπτη δεν είναι πλέον ορατά",
+    "recipient_form_error": "Προέκυψε σφάλμα κατά την υποβολή της φόρμας"
   },
   "gift_cards": {
     "issued": {

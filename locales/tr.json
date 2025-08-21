@@ -222,7 +222,10 @@
     "recipient_form_characters_used": "{{ used_chars }}/{{ max_chars }} karakter kullanıldı",
     "recipient_form_send_on": "GG.AA.YYYY",
     "recipient_form_send_on_label": "Şu tarihte gönder (isteğe bağlı)",
-    "recipient_form_message": "Mesaj (isteğe bağlı)"
+    "recipient_form_message": "Mesaj (isteğe bağlı)",
+    "recipient_form_fields_visible": "Alıcı form alanları artık görünür",
+    "recipient_form_fields_hidden": "Alıcı form alanları artık gizli",
+    "recipient_form_error": "Form gönderimi ile ilgili bir hata oluştu"
   },
   "gift_cards": {
     "issued": {

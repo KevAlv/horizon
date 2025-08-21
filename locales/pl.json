@@ -232,7 +232,10 @@
     "recipient_form_characters_used": "Użyte znaki: {{ used_chars }}/{{ max_chars }}",
     "recipient_form_send_on": "RRRR-MM-DD",
     "recipient_form_send_on_label": "Wyślij dnia (opcjonalnie)",
-    "recipient_form_message": "Wiadomość (opcjonalnie)"
+    "recipient_form_message": "Wiadomość (opcjonalnie)",
+    "recipient_form_fields_visible": "Pola formularza odbiorcy są teraz widoczne",
+    "recipient_form_fields_hidden": "Pola formularza odbiorcy są teraz ukryte",
+    "recipient_form_error": "Wystąpił błąd podczas przesyłania formularza"
   },
   "gift_cards": {
     "issued": {

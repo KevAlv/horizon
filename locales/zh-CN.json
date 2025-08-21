@@ -217,14 +217,15 @@
     "recipient_form_send_to": "发送至",
     "recipient_form_email_label": "收件人电子邮件",
     "recipient_form_email_label_my_email": "我的电子邮件",
-    "recipient_form_email_label_optional_for_no_js_behavior": "收件人电子邮件（可选）",
     "recipient_form_email_address": "收件人电子邮件地址",
     "recipient_form_name_label": "收件人姓名（可选）",
-    "recipient_form_message_label": "消息（可选）",
     "recipient_form_message": "消息（可选）",
     "recipient_form_characters_used": "已输入 {{ used_chars }} 个字符，最多 {{ max_chars }} 个",
     "recipient_form_send_on": "年-月-日",
-    "recipient_form_send_on_label": "发送日期（可选）"
+    "recipient_form_send_on_label": "发送日期（可选）",
+    "recipient_form_fields_visible": "收件人表单字段现在可见",
+    "recipient_form_fields_hidden": "收件人表单字段现已隐藏",
+    "recipient_form_error": "提交表单时出现错误"
   },
   "gift_cards": {
     "issued": {

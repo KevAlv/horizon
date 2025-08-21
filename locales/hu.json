@@ -217,14 +217,15 @@
     "recipient_form_send_to": "Címzett",
     "recipient_form_email_label": "Címzett e-mail-címe",
     "recipient_form_email_label_my_email": "Az e-mail-címem",
-    "recipient_form_email_label_optional_for_no_js_behavior": "Címzett e-mail-címe (nem kötelező)",
     "recipient_form_email_address": "Címzett e-mail-címe",
     "recipient_form_name_label": "Címzett neve (nem kötelező)",
-    "recipient_form_message_label": "Üzenet (nem kötelező)",
     "recipient_form_message": "Üzenet (nem kötelező)",
     "recipient_form_characters_used": "{{ max_chars }} karakterből {{ used_chars }} felhasználva",
     "recipient_form_send_on": "ÉÉÉÉ-HH-NN",
-    "recipient_form_send_on_label": "Küldés dátuma (nem kötelező)"
+    "recipient_form_send_on_label": "Küldés dátuma (nem kötelező)",
+    "recipient_form_fields_visible": "A kedvezményezettre vonatkozó űrlapmezők most láthatók",
+    "recipient_form_fields_hidden": "A kedvezményezettre vonatkozó űrlapmezők most el vannak rejtve",
+    "recipient_form_error": "Hiba történt az űrlap beküldése során"
   },
   "gift_cards": {
     "issued": {

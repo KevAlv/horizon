@@ -38,17 +38,11 @@
   if has_video_1 or has_video_2
     assign has_video = true
   endif
-  if has_video_1 and has_video_2
+  if media_type_1 == 'video' and media_type_2 == 'video'
     assign has_video_multiple = true
   endif
   if has_image or has_video
     assign has_media = true
-  endif
-
-  assign alpha = section.settings.overlay_color.alpha
-  assign is_transparent = true
-  if alpha == 1 and section.settings.toggle_overlay
-    assign is_transparent = false
   endif
 
   assign fetch_priority = 'auto'
@@ -156,7 +150,7 @@
     </div>
   {%- endif -%}
 
-  {% if has_media == false and is_transparent %}
+  {% if has_media == false %}
     {{ 'hero-apparel-1' | placeholder_svg_tag: 'hero__image' }}
   {%- endif -%}
 {% endcapture %}
@@ -188,7 +182,7 @@
         sizes: sizes
     }}
   {% endif %}
-  {% if has_media == false and is_transparent %}
+  {% if has_media == false %}
     {{ 'hero-apparel-1' | placeholder_svg_tag: 'hero__image' }}
   {% endif %}
 {% endcapture %}
@@ -217,7 +211,7 @@
   {% endif %}
 >
   {% if section.settings.blurred_reflection %}
-    {% unless has_video_multiple or is_transparent == false %}
+    {% unless has_video_multiple %}
       <div class="hero__blurred-image">
         {{ media_blurred }}
       </div>
@@ -808,7 +802,8 @@
       "id": "blurred_reflection",
       "label": "t:settings.blurred_reflection",
       "default": false,
-      "info": "t:info.applies_on_image_only"
+      "info": "t:info.applies_on_image_only",
+      "visible_if": "{{ section.settings.media_type_1 != 'video' or section.settings.media_type_2 != 'video' }}"
     },
     {
       "type": "range",
@@ -819,7 +814,7 @@
       "step": 1,
       "unit": "%",
       "default": 75,
-      "visible_if": "{{ section.settings.blurred_reflection }}"
+      "visible_if": "{{ section.settings.blurred_reflection and section.settings.media_type_1 != 'video' or section.settings.media_type_2 != 'video' }}"
     },
     {
       "type": "header",
@@ -854,7 +849,7 @@
         "text_1": {
           "type": "text",
           "settings": {
-            "text": "<h1>New arrivals</h1>",
+            "text": "t:html_defaults.new_arrivals_h1",
             "type_preset": "h1",
             "max_width": "narrow"
           }
@@ -862,7 +857,7 @@
         "text_2": {
           "type": "text",
           "settings": {
-            "text": "<p>Made with care and unconditionally loved by our customers.</p>",
+            "text": "t:html_defaults.made_with_care",
             "max_width": "narrow",
             "padding-block-end": 32
           }
@@ -871,7 +866,7 @@
           "type": "button",
           "name": "t:names.button",
           "settings": {
-            "label": "Shop Now",
+            "label": "t:text_defaults.shop_now_button_label",
             "link": "shopify://collections/all"
           }
         }
@@ -905,7 +900,7 @@
             "text": {
               "type": "text",
               "settings": {
-                "text": "<p>Explore our latest products.</p>",
+                "text": "t:html_defaults.explore_latest_products",
                 "type_preset": "h1"
               }
             }
@@ -915,7 +910,7 @@
         "button": {
           "type": "button",
           "settings": {
-            "label": "Shop Now",
+            "label": "t:text_defaults.shop_now_button_label",
             "link": "shopify://collections/all"
           }
         }
@@ -1007,7 +1002,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h2><em>Introducing</em></h2>",
+                    "text": "t:html_defaults.introducing_h2",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -1032,7 +1027,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h1>Our Newest Arrivals</h1>",
+                    "text": "t:html_defaults.new_arrivals_h1",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -1060,7 +1055,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
+                "text": "t:html_defaults.make_things_better_extended",
                 "width": "fit-content",
                 "max_width": "none",
                 "alignment": "left",

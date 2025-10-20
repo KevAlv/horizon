@@ -55,11 +55,10 @@
           "blocks": {}
         },
         "blog-post-image": {
-          "type": "image",
+          "type": "_blog-post-featured-image",
           "name": "Featured image",
           "static": true,
           "settings": {
-            "link": "",
             "image_ratio": "landscape",
             "width": "fill",
             "custom_width": 100,

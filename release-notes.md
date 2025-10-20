@@ -1,34 +1,36 @@
-# Release Notes - Version 3.0.0
+# Release Notes - Version 3.0.1
 
-This release introduces performance improvements, creates standalone sections for the logo and footer utilities, and simplifies settings all around the theme, along with bugfixing.
+This release focuses on accessibility improvements across the theme, adds infinite scroll for product grids, and fixes several bugs related to product selection and display.
 
 ## What's Changed
 
 ### Added
 
-- [Cart] Added empty cart button link setting
-- [Footer] Added footer utilities section
-- [Footer] Added logo section
+- [Product grid] Added optional infinite scroll
 
 ### Changed
 
-- [Footer] Simplified settings
-- [Cart] Allowed horizontal accelerated checkout buttons
-- [Cart] Updated typography settings
-- [Header] Moved logo size controls to Theme settings
+- [Password page] Made footer a section of its own
 
 ### Fixes and improvements
 
-- [Performance] Lowered the priority of font preloads in favor of more critical resources
-- [Performance] Improved image zoom transition performance on low power devices
-- [Menu] Improved long text support
-- [Menu] Improved settings organization and naming
-- [Hero] Fixed horizontal scroll caused by the marquee
-- [Header] Fixed transparent header positioning when announcement bars are present
-- [Cart drawer] Fixed quantity alignment in iOS devices
-- [Group] Fixed content alignment issues on smaller screens
-- [Product recommendations] Fixed error in Theme Editor when adding the block
-- [Marquee] Improved marquee speed across screen sizes
-- [Product card] Fixed incorrect variant image when filter was applied
-- [Theme settings] Removed unnecessary button text weight settings
-- [Email signup] Fixed input layout issues
+- [Gift card] Fixed gift card recipient form character count color inheritance
+- [Quantity rules] Fixed bug with how numbers were being compared
+- [Product cards] Fixed missing image preview on swatch mouseover
+- [Variant picker] Improved variant picker motion
+- [Product] Fixed variant selection when using More payment options without add-to-cart button
+- [Quick add] Fixed Quick Add modal showing up when product info is missing
+- [Hero] Fixed logic for blurred reflection slider and toggle
+- [Collection link] Fixed text wrapping on mobile
+- [Header drawer] Fixed expand first group settings
+- [Blog] Fixed blog post template app blocks
+- [Accessibility] Enhanced mobile account drawer accessibility
+- [Accessibility] Improved cart launcher accessibility
+- [Accessibility] Improved accessibility for popovers
+- [Accessibility] Added explicit "Close" button to search dialog
+- [Accessibility] Improved "Search" button accessibility
+- [Accessibility] Improved localization component accessibility
+- [Accessibility] Improved contrast for the predictive search "Clear" button
+- [Accessibility] Added h1 tags to page templates for SEO and accessibility
+- [Accessibility] Enhanced dialog accessibility with ARIA labeling
+- [Performance] Improved performance when opening / closing dialogs

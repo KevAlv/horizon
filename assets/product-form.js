@@ -306,24 +306,32 @@ class ProductFormComponent extends Component {
     const currentAddToCartButton = addToCartButtonContainer?.refs.addToCartButton;
     const newAddToCartButton = event.detail.data.html.querySelector('[ref="addToCartButton"]');
 
-    if (!currentAddToCartButton) return;
+    // Update the variant ID
+    variantId.value = event.detail.resource?.id ?? '';
+
+    if (!currentAddToCartButton && !this.refs.acceleratedCheckoutButtonContainer) return;
 
     // Update the button state
-    if (event.detail.resource == null || event.detail.resource.available == false) {
-      addToCartButtonContainer.disable();
-      this.refs.acceleratedCheckoutButtonContainer?.setAttribute('hidden', 'true');
-    } else {
-      addToCartButtonContainer.enable();
-      this.refs.acceleratedCheckoutButtonContainer?.removeAttribute('hidden');
+    if (currentAddToCartButton) {
+      if (event.detail.resource == null || event.detail.resource.available == false) {
+        addToCartButtonContainer.disable();
+      } else {
+        addToCartButtonContainer.enable();
+      }
+
+      // Update the add to cart button text and icon
+      if (newAddToCartButton) {
+        morph(currentAddToCartButton, newAddToCartButton);
+      }
     }
 
-    // Update the add to cart button text and icon
-    if (newAddToCartButton) {
-      morph(currentAddToCartButton, newAddToCartButton);
+    if (this.refs.acceleratedCheckoutButtonContainer) {
+      if (event.detail.resource == null || event.detail.resource.available == false) {
+        this.refs.acceleratedCheckoutButtonContainer?.setAttribute('hidden', 'true');
+      } else {
+        this.refs.acceleratedCheckoutButtonContainer?.removeAttribute('hidden');
+      }
     }
-
-    // Update the variant ID
-    variantId.value = event.detail.resource.id ?? '';
 
     // Set the data attribute for the add to cart button to the product variant media if it exists
     if (event.detail.resource) {

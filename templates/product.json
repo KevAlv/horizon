@@ -107,10 +107,11 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "product_title_eYVzTU": {
-                  "type": "product-title",
+                "text_xpVMaM": {
+                  "type": "text",
                   "name": "t:names.title",
                   "settings": {
+                    "text": "<h1>{{ closest.product.title }}</h1>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -156,7 +157,7 @@
                 }
               },
               "block_order": [
-                "product_title_eYVzTU",
+                "text_xpVMaM",
                 "price_tVjtKg"
               ]
             },

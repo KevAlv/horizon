@@ -4,7 +4,7 @@ Analyze and fix accessibility issues in web applications, following the standard
 
 ## Usage
 
-```
+```bash
 Fix accessibility issue in [COMPONENT_NAME] or Fix GitHub accessibility issue #[NUMBER]
 ```
 
@@ -58,6 +58,8 @@ In addition to standard testing requirements:
 - **Test with screen readers** to verify actual behavior, not just markup
 - **Verify individual items are recognized**, not just containers
 - **Test focus states thoroughly** by navigating away and back to components
+- **Accessibility tests**: Place in `tests/suites/theme1/accessibility/` folder
+- **View parameters**: Only add `?view=` parameter to URLs when specifically needed for test configuration (e.g., when using custom test templates)
 
 ### Focus Management Best Practices
 

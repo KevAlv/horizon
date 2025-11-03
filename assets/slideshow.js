@@ -474,16 +474,21 @@ export class Slideshow extends Component {
     scheduler.schedule(() => {
       let visibleSlidesAmount = 0;
       const initialSlideId = this.initialSlide?.getAttribute('slide-id');
-      if (this.initialSlideIndex !== 0 && initialSlideId) {
-        this.select({ id: initialSlideId }, undefined, { animate: false });
-        visibleSlidesAmount = 1;
-      } else {
-        visibleSlidesAmount = this.#updateVisibleSlides();
-        if (visibleSlidesAmount === 0) {
-          this.select(0, undefined, { animate: false });
+
+      // Wait for next frame to ensure layout is fully calculated before setting initial scroll position
+      // This prevents race conditions on Safari mobile when section_width is 'full-width'
+      requestAnimationFrame(() => {
+        if (this.initialSlideIndex !== 0 && initialSlideId) {
+          this.select({ id: initialSlideId }, undefined, { animate: false });
           visibleSlidesAmount = 1;
+        } else {
+          visibleSlidesAmount = this.#updateVisibleSlides();
+          if (visibleSlidesAmount === 0) {
+            this.select(0, undefined, { animate: false });
+            visibleSlidesAmount = 1;
+          }
         }
-      }
+      });
 
       this.#resizeObserver = new ResizeObserver(async () => {
         if (viewTransition.current) await viewTransition.current;

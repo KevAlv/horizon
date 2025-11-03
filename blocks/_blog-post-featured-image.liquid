@@ -22,8 +22,8 @@
   {{ block.shopify_attributes }}
 >
   {%- capture image_border_style -%}
-      {% render 'border-override', settings: block_settings %}
-    {%- endcapture -%}
+    {% render 'border-override', settings: block_settings %}
+  {%- endcapture -%}
 
   {{
     image

@@ -37,7 +37,7 @@
     "search_results_count": "Rasti {{ count }} rezultatai (-ų) pagal užklausą „{{ query }}“",
     "search_results_no_results": "Nerasta jokių rezultatų pagal užklausą „{{ query }}“",
     "filters": "Filtrai",
-    "account": "Atidaryti paskyros meniu",
+    "account": "Paskyra",
     "cart": "Krepšelis",
     "cart_count": "Iš viso prekių krepšelyje",
     "filter_count": {
@@ -53,7 +53,6 @@
     "loading_product_recommendations": "Įkeliamos gaminių rekomendacijos",
     "discount": "Taikyti nuolaidos kodą",
     "discount_applied": "Pritaikytas nuolaidos kodas: {{ code }}",
-    "open_cart_drawer": "Atidaryti krepšelį",
     "inventory_status": "Atsargų būsena",
     "pause_video": "Pristabdyti vaizdo įrašą",
     "find_country": "Rasti šalį",
@@ -278,7 +277,13 @@
       "adding_to_cart": "Pridedama…",
       "add_to_cart_error": "Dedant į krepšelį įvyko klaida",
       "sold_out": "Išparduota",
-      "unavailable": "Nėra"
+      "unavailable": "Nėra",
+      "quantity_error_max": "Nustatytas didžiausias šios prekės kiekis: {{ maximum }}",
+      "quantity": "Kiekis",
+      "quantity_increments": "Kiekis didėja kas {{ increment }}",
+      "quantity_minimum": "Mažiausiai {{ minimum }}",
+      "quantity_maximum": "Daugiausiai {{ maximum }}",
+      "in_cart": "krepšelyje"
     }
   },
   "fields": {

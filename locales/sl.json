@@ -43,7 +43,7 @@
       "few": "Št. uporabljenih filtrov: {{ count }}",
       "two": "Št. uporabljenih filtrov: {{ count }}"
     },
-    "account": "Odpri meni za račun",
+    "account": "Račun",
     "cart": "Košarica",
     "cart_count": "Skupno število izdelkov v košarici",
     "menu": "Meni",
@@ -53,7 +53,6 @@
     "loading_product_recommendations": "Nalaganje priporočil za izdelke",
     "discount": "Uporabi kodo za popust",
     "discount_applied": "Uporabljena koda za popust: {{ code }}",
-    "open_cart_drawer": "Odpri košarico",
     "inventory_status": "Status zaloge",
     "pause_video": "Zaustavi videoposnetek",
     "find_country": "Poišči državo",
@@ -278,7 +277,13 @@
       "adding_to_cart": "Dodajanje ...",
       "add_to_cart_error": "Pri dodajanju v košarico je prišlo do napake",
       "sold_out": "Razprodano",
-      "unavailable": "Ni na voljo"
+      "unavailable": "Ni na voljo",
+      "quantity_error_max": "Ta artikel ima največ {{ maximum }}",
+      "quantity": "Količina",
+      "quantity_increments": "V korakih po {{ increment }}",
+      "quantity_minimum": "Najmanj od {{ minimum }}",
+      "quantity_maximum": "Največ od {{ maximum }}",
+      "in_cart": "v košarici"
     }
   },
   "fields": {

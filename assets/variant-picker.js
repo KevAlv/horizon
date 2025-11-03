@@ -1,7 +1,7 @@
 import { Component } from '@theme/component';
 import { VariantSelectedEvent, VariantUpdateEvent } from '@theme/events';
 import { morph } from '@theme/morph';
-import { requestYieldCallback } from '@theme/utilities';
+import { requestYieldCallback, getViewParameterValue } from '@theme/utilities';
 
 /**
  * @typedef {object} VariantPickerRefs
@@ -187,6 +187,10 @@ export default class VariantPicker extends Component {
     let productUrl = selectedOption.dataset.connectedProductUrl || this.#pendingRequestUrl || this.dataset.productUrl;
     this.#pendingRequestUrl = productUrl;
     const params = [];
+    const viewParamValue = getViewParameterValue();
+
+    // preserve view parameter, if it exists, for alternative product view testing
+    if (viewParamValue) params.push(`view=${viewParamValue}`);
 
     if (this.selectedOptionsValues.length && !source) {
       params.push(`option_values=${this.selectedOptionsValues.join(',')}`);

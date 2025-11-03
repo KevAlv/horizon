@@ -90,6 +90,8 @@
     "media": "Media",
     "media_1": "Media 1",
     "media_2": "Media 2",
+    "mobile_media": "Mobile media",
+    "mobile_media_2": "Mobile media 2",
     // Section header for navigation menu settings in theme editor
     "menu": "Menu",
     "mobile_column_optimization": "Columns will automatically optimize for mobile",
@@ -147,6 +149,8 @@
     "app_required_for_ratings": "An app is required for product ratings. [Learn more](https://help.shopify.com/manual/apps)"
   },
   "html_defaults": {
+    "join_our_email_list": "<h2>Join our email list</h2>",
+    "get_exclusive_deals_and_early_access_to_new_products": "<p>Get exclusive deals and early access to new products.</p>",
     "bestseller_h2": "<h2>Bestsellers</h2>",
     "bestseller_h3": "<h3>Bestsellers</h3>",
     "bestseller": "<p>Bestseller</p>",
@@ -217,6 +221,7 @@
     "media_type_info": "Features are populated from your menu links"
   },
   "names": {
+    "column": "Column",
     "product_title": "Product title",
     "custom_liquid": "Custom Liquid",
     "404": "404",
@@ -395,6 +400,7 @@
     "title": "Title",
     "typography": "Typography",
     "utilities": "Utilities",
+    "policies_and_links": "Policies and links",
     "variant_pickers": "Variant pickers",
     "variants": "Variants",
     "video": "Video",
@@ -723,6 +729,8 @@
     "add_to_cart_animation": "Add to cart",
     "always_stack_buttons": "Always stack buttons",
     "aspect_ratio": "Aspect ratio",
+    "custom_mobile_media": "Custom mobile media",
+    "stack_media_on_mobile": "Stack media",
     "auto_rotate_announcements": "Auto-rotate announcements",
     "auto_rotate_slides": "Auto-rotate slides",
     "auto_load_products": "Auto load products on scroll",
@@ -1111,7 +1119,9 @@
     "wrap": "Wrap",
     "z_index": "Z-index",
     "product_corner_radius": "Product corner radius",
-    "card_corner_radius": "Card corner radius"
+    "card_corner_radius": "Card corner radius",
+    "media_type_1": "Media type",
+    "media_type_2": "Media 2 type"
   },
   "text_defaults": {
     "accordion_heading": "Accordion heading",

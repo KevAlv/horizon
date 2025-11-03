@@ -52,7 +52,6 @@
     "discount_menu": "Rabattcodes",
     "loading_product_recommendations": "Produktempfehlungen werden geladen",
     "discount_applied": "Angewendeter Rabattcode: {{ code }}",
-    "open_cart_drawer": "Warenkorb öffnen",
     "inventory_status": "Inventarstatus",
     "pause_video": "Video pausieren",
     "find_country": "Land finden",
@@ -228,7 +227,13 @@
     "recipient_form_fields_hidden": "Empfängerformularfelder sind jetzt ausgeblendet.",
     "recipient_form_error": "Beim Absenden des Formulars ist ein Fehler aufgetreten.",
     "product_custom_property_character_count": "{{ used_chars }}/{{ max_chars }} Zeichen verwendet",
-    "terms_and_policies": "Geschäftsbedingungen und Richtlinien"
+    "terms_and_policies": "Geschäftsbedingungen und Richtlinien",
+    "pagination": {
+      "nav_label": "Seitennavigation",
+      "previous": "Zurück",
+      "next": "Weiter",
+      "page": "Seite {{ page }}"
+    }
   },
   "gift_cards": {
     "issued": {
@@ -262,7 +267,13 @@
       "adding_to_cart": "Wird hinzugefügt...",
       "add_to_cart_error": "Fehler beim Hinzufügen zum Warenkorb",
       "sold_out": "Ausverkauft",
-      "unavailable": "Nicht verfügbar"
+      "unavailable": "Nicht verfügbar",
+      "quantity_error_max": "Dieser Artikel hat ein Maximum von {{ maximum }}",
+      "quantity": "Menge",
+      "quantity_increments": "In {{ increment }}er Schritten",
+      "quantity_minimum": "Mindestens {{ minimum }}",
+      "quantity_maximum": "Maximal {{ maximum }}",
+      "in_cart": "im Warenkorb"
     }
   },
   "fields": {

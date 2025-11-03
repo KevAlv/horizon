@@ -51,7 +51,6 @@
     "loading_product_recommendations": "Đang tải đề xuất sản phẩm",
     "discount": "Áp dụng một mã giảm giá",
     "discount_applied": "Đã áp dụng mã giảm giá: {{ code }}",
-    "open_cart_drawer": "Mở giỏ hàng",
     "inventory_status": "Trạng thái hàng trong kho",
     "pause_video": "Tạm dừng video",
     "find_country": "Tìm quốc gia",
@@ -268,7 +267,13 @@
       "adding_to_cart": "Đang thêm...",
       "add_to_cart_error": "Lỗi khi thêm vào giỏ hàng",
       "sold_out": "Hết hàng",
-      "unavailable": "Không khả dụng"
+      "unavailable": "Không khả dụng",
+      "quantity_error_max": "Mặt hàng này có tối đa {{ maximum }}",
+      "quantity": "Số lượng",
+      "quantity_increments": "Mức gia tăng {{ increment }}",
+      "quantity_minimum": "Tối thiểu {{ minimum }}",
+      "quantity_maximum": "Tối đa {{ maximum }}",
+      "in_cart": "trong giỏ hàng"
     }
   },
   "fields": {

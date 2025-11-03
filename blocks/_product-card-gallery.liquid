@@ -12,7 +12,7 @@
 
 {% capture children %}
   {% unless closest.product == blank %}
-    {% render 'product-card-badges', product: closest.product %}
+    {% render 'product-card-badges', product: closest.product, settings: settings %}
     {%  if settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add', product: closest.product, section_id: section.id %}
     {% endif %}
@@ -27,11 +27,6 @@
     <h3 class="h4">{{ 'content.product_card_placeholder' | t }}</h3>
   {% else %}
     <h3 class="h4">{{ closest.product.title }}</h3>
-    <div class="h6">
-      <product-price data-product-id="{{ closest.product.id }}">
-        {% render 'price', product_resource: closest.product, show_unit_price: false %}
-      </product-price>
-    </div>
   {% endif %}
 </div>
 

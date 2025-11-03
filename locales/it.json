@@ -53,7 +53,6 @@
     "discount": "Applica un codice sconto",
     "discount_menu": "Codici sconto",
     "discount_applied": "Codice sconto applicato: {{ code }}",
-    "open_cart_drawer": "Apri carrello",
     "inventory_status": "Stato delle scorte",
     "pause_video": "Metti video in pausa",
     "find_country": "Trova paese",
@@ -273,7 +272,13 @@
       "adding_to_cart": "Aggiunta in corso...",
       "add_to_cart_error": "Errore durante l'aggiunta al carrello",
       "sold_out": "Esaurito",
-      "unavailable": "Non disponibile"
+      "unavailable": "Non disponibile",
+      "quantity_error_max": "Questo articolo ha un massimo di {{ maximum }}",
+      "quantity": "Quantità",
+      "quantity_increments": "Incrementi di {{ increment }}",
+      "quantity_minimum": "Minimo di {{ minimum }}",
+      "quantity_maximum": "Massimo di {{ maximum }}",
+      "in_cart": "nel carrello"
     }
   },
   "fields": {

@@ -51,7 +51,6 @@
     "loading_product_recommendations": "Memuat rekomendasi produk",
     "discount": "Pakai kode diskon",
     "discount_applied": "Kode diskon yang dipakai: {{ code }}",
-    "open_cart_drawer": "Buka troli",
     "inventory_status": "Status Inventaris",
     "pause_video": "Jeda video",
     "find_country": "Temukan negara",
@@ -268,7 +267,13 @@
       "adding_to_cart": "Menambahkan...",
       "add_to_cart_error": "Kesalahan saat menambahkan ke keranjang",
       "sold_out": "Habis",
-      "unavailable": "Tidak Tersedia"
+      "unavailable": "Tidak Tersedia",
+      "quantity_error_max": "Item ini memiliki batas maksimum {{ maximum }}",
+      "quantity": "Jumlah",
+      "quantity_increments": "Nilai peningkatan {{ increment }}",
+      "quantity_minimum": "Minimum {{ minimum }}",
+      "quantity_maximum": "Maksimum {{ maximum }}",
+      "in_cart": "di keranjang"
     }
   },
   "fields": {

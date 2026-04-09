@@ -1,13 +1,4 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
- {
+{
   "sections": {
     "main": {
       "type": "product-information",
@@ -20,7 +11,7 @@
             "media_columns": "two",
             "image_gap": 4,
             "large_first_image": false,
-            "icons_style": "arrow",
+            "icons_style": "none",
             "slideshow_controls_style": "counter",
             "slideshow_mobile_controls_style": "dots",
             "thumbnail_position": "right",
@@ -71,7 +62,6 @@
               "type": "group",
               "name": "Header",
               "settings": {
-                "link": "",
                 "open_in_new_tab": false,
                 "content_direction": "column",
                 "vertical_on_mobile": true,
@@ -96,7 +86,6 @@
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_radius": 0,
-                "placeholder": "",
                 "toggle_overlay": false,
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
@@ -107,22 +96,22 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "text_xpVMaM": {
+                "text_xrnftG": {
                   "type": "text",
-                  "name": "t:names.title",
+                  "name": "Product title",
                   "settings": {
-                    "text": "<h1>{{ closest.product.title }}</h1>",
-                    "width": "fit-content",
+                    "text": "<h1>{{ closest.product.title }}<\/h1>",
+                    "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
                     "type_preset": "h3",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
+                    "font": "var(--font-primary--family)",
+                    "font_size": "",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
-                    "color": "var(--color-foreground)",
+                    "color": "",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
@@ -157,7 +146,7 @@
                 }
               },
               "block_order": [
-                "text_xpVMaM",
+                "text_xrnftG",
                 "price_tVjtKg"
               ]
             },
@@ -191,7 +180,6 @@
               "settings": {
                 "stacking": true,
                 "show_pickup_availability": false,
-                "gift_card_form": true,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -275,7 +263,7 @@
           "type": "text",
           "name": "t:names.header",
           "settings": {
-            "text": "<h3>You may also like </h3>",
+            "text": "<h3>You may also like <\/h3>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",

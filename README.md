@@ -8,7 +8,24 @@ This project adds three PDP features: a **Build Your Routine** accordion, a vari
 2. Install [Shopify CLI](https://shopify.dev/docs/storefronts/themes/tools/cli) and run `shopify theme dev` against your store.
 3. Everything is wired through **`templates/product.json`**.
 
+## Project structure
+
+### Theme sections
+- [sections/build-your-routine.liquid](https://github.com/KevAlv/horizon/blob/submission-final/sections/build-your-routine.liquid) (Includes markup and CSS)
+- [sections/benefits-ingredients.liquid](https://github.com/KevAlv/horizon/blob/submission-final/sections/benefits-ingredients.liquid) (Includes markup and CSS)
+
+### Snippets
+- [snippets/routine-product-json.liquid](https://github.com/KevAlv/horizon/blob/submission-final/snippets/routine-product-json.liquid)
+
+### Assets
+- [assets/build-your-routine.js](https://github.com/KevAlv/horizon/blob/submission-final/assets/build-your-routine.js)
+- [assets/benefits-ingredients.js](https://github.com/KevAlv/horizon/blob/submission-final/assets/benefits-ingredients.js)
+
 ## Implementation details
+
+Review the sections below for more on the technical approach:
+- [Architectural decisions](#implementation-details)
+- [State management approach](#build-your-routine)
 
 ### Build Your Routine
 

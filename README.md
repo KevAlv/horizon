@@ -11,15 +11,15 @@ This project adds three PDP features: a **Build Your Routine** accordion, a vari
 ## Project structure
 
 ### Theme sections
-- [sections/build-your-routine.liquid](https://github.com/KevAlv/horizon/blob/submission-final/sections/build-your-routine.liquid) (Includes markup and CSS)
-- [sections/benefits-ingredients.liquid](https://github.com/KevAlv/horizon/blob/submission-final/sections/benefits-ingredients.liquid) (Includes markup and CSS)
+- [sections/build-your-routine.liquid](https://github.com/KevAlv/horizon/blob/doc/submission-final/sections/build-your-routine.liquid) (Includes markup and CSS)
+- [sections/benefits-ingredients.liquid](https://github.com/KevAlv/horizon/blob/doc/submission-final/sections/benefits-ingredients.liquid) (Includes markup and CSS)
 
 ### Snippets
-- [snippets/routine-product-json.liquid](https://github.com/KevAlv/horizon/blob/submission-final/snippets/routine-product-json.liquid)
+- [snippets/routine-product-json.liquid](https://github.com/KevAlv/horizon/blob/doc/submission-final/snippets/routine-product-json.liquid)
 
 ### Assets
-- [assets/build-your-routine.js](https://github.com/KevAlv/horizon/blob/submission-final/assets/build-your-routine.js)
-- [assets/benefits-ingredients.js](https://github.com/KevAlv/horizon/blob/submission-final/assets/benefits-ingredients.js)
+- [assets/build-your-routine.js](https://github.com/KevAlv/horizon/blob/doc/submission-final/assets/build-your-routine.js)
+- [assets/benefits-ingredients.js](https://github.com/KevAlv/horizon/blob/doc/submission-final/assets/benefits-ingredients.js)
 
 ## Implementation details
 

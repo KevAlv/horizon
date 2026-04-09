@@ -1,0 +1,596 @@
+<script
+  src="{{ 'build-your-routine.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
+<build-your-routine
+  class="build-your-routine section section--page-width color-{{ section.settings.color_scheme }} spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+  {{ section.shopify_attributes }}
+>
+  {%- comment -%}
+    Routine configuration.
+    Priority:
+    1. Product-level metafield: product.metafields.custom.routine_config.value
+    2. Fallback: Default demo logic using hardcoded handles.
+  {%- endcomment -%}
+
+  {%- assign routine_config = product.metafields.custom.routine_config.value -%}
+
+  {%- if routine_config == blank -%}
+    {%- comment -%} Demo Fallback {%- endcomment -%}
+    {%- assign p_towel     = all_products['microfiber-makeup-removing-towels'] -%}
+    {%- assign p_headband  = all_products['blush-microfiber-headband'] -%}
+    {%- assign p_jade      = all_products['jade-crystal-facial-roller'] -%}
+    {%- assign p_rose      = all_products['rose-quartz-facial-roller'] -%}
+    {%- assign p_dalmatian = all_products['dalmatian-jasper-crystal-facial-roller'] -%}
+    {%- assign p_derma     = all_products['micro-derma-facial-roller'] -%}
+
+    {%- capture demo_json -%}
+    {
+      "discount_percentage": 10,
+      "steps": [
+        {
+          "id": "step-1",
+          "title": "Step 1: Cleanse",
+          "description": "Prep your skin with a clean, fresh start.",
+          "required": true,
+          "multi_select": false,
+          "products": [
+            {%- liquid
+              assign sep = ''
+              capture fragment
+                render 'routine-product-json', product: p_towel
+              endcapture
+              if fragment != blank
+                echo sep | append: fragment
+                assign sep = ','
+              endif
+              capture fragment
+                render 'routine-product-json', product: p_headband
+              endcapture
+              if fragment != blank
+                echo sep | append: fragment
+              endif
+            -%}
+          ]
+        },
+        {
+          "id": "step-2",
+          "title": "Step 2: Treat",
+          "description": "Roll away tension and boost circulation.",
+          "required": true,
+          "multi_select": false,
+          "products": [
+            {%- liquid
+              assign sep = ''
+              capture fragment
+                render 'routine-product-json', product: p_jade
+              endcapture
+              if fragment != blank
+                echo sep | append: fragment
+                assign sep = ','
+              endif
+              capture fragment
+                render 'routine-product-json', product: p_rose
+              endcapture
+              if fragment != blank
+                echo sep | append: fragment
+              endif
+            -%}
+          ]
+        },
+        {
+          "id": "step-3",
+          "title": "Step 3: Glow",
+          "description": "Elevate your ritual with crystal self-care.",
+          "required": false,
+          "multi_select": true,
+          "products": [
+            {%- liquid
+              assign sep = ''
+              capture fragment
+                render 'routine-product-json', product: p_dalmatian
+              endcapture
+              if fragment != blank
+                echo sep | append: fragment
+                assign sep = ','
+              endif
+              capture fragment
+                render 'routine-product-json', product: p_derma
+              endcapture
+              if fragment != blank
+                echo sep | append: fragment
+              endif
+            -%}
+          ]
+        }
+      ]
+    }
+    {%- endcapture -%}
+    {%- assign routine_config_json = demo_json -%}
+  {%- else -%}
+    {%- assign routine_config_json = routine_config | json -%}
+  {%- endif -%}
+
+  <script type="application/json" id="routine-config-{{ section.id }}">
+    {{ routine_config_json }}
+  </script>
+
+
+
+  <div class="build-your-routine__inner">
+    {% if section.settings.heading != blank %}
+      <h2 class="build-your-routine__heading">{{ section.settings.heading | escape }}</h2>
+    {% endif %}
+    {% if section.settings.subheading != blank %}
+      <p class="build-your-routine__subheading">{{ section.settings.subheading | escape }}</p>
+    {% endif %}
+
+    <!-- JS renders the accordion steps here from the JSON config -->
+    <div class="routine-steps" id="routine-steps-{{ section.id }}"></div>
+
+    <div class="routine-summary">
+      <div class="routine-summary__pricing">
+        <span class="routine-summary__subtotal"></span>
+        <span class="routine-summary__discount" hidden></span>
+        <span class="routine-summary__total"></span>
+      </div>
+      <div class="routine-summary__actions">
+        <button
+          class="routine-summary__cta button"
+          type="button"
+          disabled
+          aria-disabled="true"
+        >
+          Add Routine to Cart
+        </button>
+      </div>
+      <div
+        class="routine-summary__error"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+        hidden
+      ></div>
+    </div>
+  </div>
+</build-your-routine>
+
+{% stylesheet %}
+  .build-your-routine {
+    display: block;
+  }
+
+  .build-your-routine__inner {
+    max-width: var(--page-width);
+    margin-inline: auto;
+    padding-inline: var(--page-margin);
+  }
+
+  .build-your-routine__heading {
+    font-size: var(--font-h2--size);
+    margin-block-end: var(--margin-sm);
+  }
+
+  .build-your-routine__subheading {
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+    margin-block-end: var(--margin-xl);
+  }  /* Steps accordion */
+  .routine-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid rgb(var(--color-border-rgb));
+    border-radius: var(--style-border-radius-inputs);
+    overflow: hidden;
+    margin-block-end: var(--margin-xl);
+  }
+
+  .routine-step {
+    border-bottom: 1px solid rgb(var(--color-border-rgb));
+  }
+
+  .routine-step:last-child {
+    border-bottom: none;
+  }
+
+  /* Step header / trigger */
+  .routine-step__trigger {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-md);
+    width: 100%;
+    padding: var(--padding-md) var(--padding-lg);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .routine-step__trigger:hover {
+    background: rgb(var(--color-foreground-rgb) / 0.03);
+  }
+
+  .routine-step__trigger:focus-visible {
+    outline: 2px solid var(--color-foreground);
+    outline-offset: -2px;
+  }
+
+  .routine-step__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgb(var(--color-foreground-rgb) / 0.08);
+    font-size: var(--font-paragraph-small--size);
+    font-weight: var(--font-weight-semibold);
+    flex-shrink: 0;
+    transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .routine-step__checkmark {
+    display: none;
+  }
+
+  .routine-step[data-complete='true'] .routine-step__number {
+    background: #4caf50;
+    color: white;
+    transform: scale(1.1);
+  }
+
+  .routine-step[data-complete='true'] .routine-step__checkmark {
+    display: block;
+  }
+
+  .routine-step[data-complete='true'] .routine-step__number-text {
+    display: none;
+  }
+
+  .routine-step__title-group {
+    flex: 1;
+  }
+
+  .routine-step__title {
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-paragraph--size);
+    margin: 0;
+  }
+
+  .routine-step__description {
+    font-size: var(--font-paragraph-small--size);
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+    margin-block-start: 2px;
+  }
+
+  .routine-step__badge {
+    font-size: var(--font-paragraph-small--size);
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+    flex-shrink: 0;
+  }
+
+  .routine-step__badge--required {
+    color: var(--color-foreground);
+  }
+
+  .routine-step__chevron {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .routine-step[aria-expanded='true'] .routine-step__chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Step panel */
+  .routine-step__panel {
+    overflow: hidden;
+    transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: grid;
+    grid-template-rows: 0fr;
+  }
+
+  .routine-step__panel-inner {
+    overflow: hidden;
+    padding: 0 var(--padding-lg);
+    transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .routine-step[aria-expanded='true'] .routine-step__panel {
+    grid-template-rows: 1fr;
+  }
+
+  .routine-step[aria-expanded='true'] .routine-step__panel-inner {
+    padding-block: var(--padding-md) var(--padding-lg);
+  }
+
+  /* Product grid */
+  .routine-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: var(--gap-md);
+  }
+
+  /* Entrance animation for items inside an expanded step */
+  .routine-step[aria-expanded='true'] .routine-product-card {
+    animation: routineSlideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+  }
+
+  .routine-step[aria-expanded='true'] .routine-product-card:nth-child(1) { animation-delay: 0.1s; }
+  .routine-step[aria-expanded='true'] .routine-product-card:nth-child(2) { animation-delay: 0.2s; }
+  .routine-step[aria-expanded='true'] .routine-product-card:nth-child(3) { animation-delay: 0.3s; }
+
+  @keyframes routineSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Product card */
+  .routine-product-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-sm);
+    padding: var(--padding-md);
+    border: 2px solid rgb(var(--color-border-rgb));
+    border-radius: var(--style-border-radius-inputs);
+    cursor: pointer;
+    transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    background: white;
+    text-align: left;
+    width: 100%;
+    will-change: transform, box-shadow;
+  }
+
+  .routine-product-card:hover {
+    border-color: rgb(var(--color-foreground-rgb) / 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+
+  .routine-product-card:focus-visible {
+    outline: 2px solid var(--color-foreground);
+    outline-offset: 2px;
+  }
+
+  .routine-product-card[aria-pressed='true'] {
+    border-color: var(--color-foreground);
+    box-shadow: 0 0 0 1px var(--color-foreground), 0 8px 24px rgba(0,0,0,0.1);
+    background: rgb(var(--color-foreground-rgb) / 0.02);
+    transform: scale(1.02) translateY(-2px);
+  }
+
+  .routine-product-card__image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: calc(var(--style-border-radius-inputs) - 2px);
+    background: rgb(var(--color-foreground-rgb) / 0.04);
+  }
+
+  .routine-product-card__title {
+    font-size: var(--font-paragraph-small--size);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .routine-product-card__price {
+    font-size: var(--font-paragraph-small--size);
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+  }
+
+  /* Variant select */
+  .routine-product-card__variant-select {
+    width: 100%;
+    padding: var(--padding-xs) var(--padding-sm);
+    border: 1px solid rgb(var(--color-border-rgb));
+    border-radius: var(--style-border-radius-inputs);
+    background: var(--color-background);
+    font-size: var(--font-paragraph-small--size);
+    cursor: pointer;
+    transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .routine-product-card__variant-select:hover {
+    border-color: var(--color-foreground);
+  }
+
+  /* Summary bar */
+  .routine-summary {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-md);
+    flex-wrap: wrap;
+    padding: var(--padding-md) var(--padding-lg);
+    border: 1px solid rgb(var(--color-border-rgb));
+    border-radius: var(--style-border-radius-inputs);
+    background: white;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.03);
+  }
+
+  .routine-summary__pricing {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--gap-sm);
+  }
+
+  .routine-summary__subtotal {
+    font-size: var(--font-paragraph-small--size);
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+    text-decoration: line-through;
+    display: none;
+  }
+
+  .routine-summary__subtotal[data-visible='true'] {
+    display: inline;
+  }
+
+  .routine-summary__discount {
+    font-size: var(--font-paragraph-small--size);
+    color: #4caf50;
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .routine-summary__total {
+    font-size: var(--font-paragraph--size);
+    font-weight: var(--font-weight-semibold);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
+  }
+
+  .routine-summary__total[data-pop="true"] {
+    animation: routinePop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  @keyframes routinePop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); color: #4caf50; }
+    100% { transform: scale(1); }
+  }
+
+  .routine-summary__cta {
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Shimmer effect for the CTA button */
+  .routine-summary__cta:not([disabled])::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.25),
+      transparent
+    );
+    transform: rotate(30deg);
+    animation: routineShimmer 4s infinite linear;
+  }
+
+  @keyframes routineShimmer {
+    0% { left: -150%; }
+    20% { left: 150%; }
+    100% { left: 150%; }
+  }
+
+  .routine-summary__error {
+    width: 100%;
+    font-size: var(--font-paragraph-small--size);
+    color: var(--color-error, #c0392b);
+    padding-block-start: var(--padding-xs);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .routine-step__panel, .routine-step__panel-inner, 
+    .routine-product-card, .routine-summary__total, 
+    .routine-step__chevron, .routine-step__number {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}
+
+  /* Mobile */
+  @media screen and (max-width: 749px) {
+    .routine-products {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .routine-summary {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .routine-summary__cta {
+      width: 100%;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Build Your Routine",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Build Your Routine"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Build a personalised skincare routine and save 10%."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "Build Your Routine",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}

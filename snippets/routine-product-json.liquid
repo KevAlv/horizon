@@ -1,0 +1,24 @@
+{%- comment -%}
+  Renders a product's details as a JSON object fragment for the routine builder.
+  Accepts:
+  - product: {Object} Shopify product object
+{%- endcomment -%}
+{%- if product != blank -%}
+  {
+    "id": {{ product.id | default: 0 }},
+    "title": {{ product.title | json }},
+    "price": {{ product.price | default: 0 }},
+    "available": {{ product.available | json }},
+    "image": "{{ product.featured_image | image_url: width: 120 }}",
+    "variants": [
+      {%- for variant in product.variants -%}
+        {
+          "id": {{ variant.id | default: 0 }},
+          "title": {{ variant.title | json }},
+          "price": {{ variant.price | default: 0 }},
+          "available": {{ variant.available | json }}
+        }{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    ]
+  }
+{%- endif -%}

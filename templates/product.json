@@ -251,9 +251,31 @@
         "equal_columns": false,
         "limit_details_width": false,
         "gap": 48,
+        "enable_sticky_add_to_cart": true,
         "color_scheme": "",
         "padding-block-start": 0,
         "padding-block-end": 0
+      }
+    },
+    "benefits_ingredients_pdp": {
+      "type": "benefits-ingredients",
+      "blocks": {},
+      "settings": {
+        "heading": "Benefits & Ingredients",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "build_your_routine_pdp": {
+      "type": "build-your-routine",
+      "blocks": {},
+      "settings": {
+        "heading": "Build Your Routine",
+        "subheading": "Build a personalised skincare routine and save 10%.",
+        "color_scheme": "scheme-2",
+        "padding-block-start": 48,
+        "padding-block-end": 48
       }
     },
     "product_recommendations_qggXJq": {
@@ -400,6 +422,8 @@
   },
   "order": [
     "main",
+    "benefits_ingredients_pdp",
+    "build_your_routine_pdp",
     "product_recommendations_qggXJq"
   ]
 }
